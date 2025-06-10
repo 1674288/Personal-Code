@@ -4,58 +4,7 @@ import sys
 import queue
 import heapq
 
-# Dijkstra =====================================================================
-"""
-def Dijkstra(g, start):
-    dic = {start:None}  
-    for v in  g.Vertices:
-        v.DijkstraDistance = sys.float_info.max #inicializamos las distancias a infinito
-    start.DijkstraDistance = 0
-    
-    DijkstraVisit = set(g.Vertices)
-    while DijkstraVisit: 
-        vActual = min(DijkstraVisit, key=lambda v: v.DijkstraDistance) #buscamos la menor distancia
-        for edge in vActual.Edges: #iteramos sobre las aristas del nodo vActual
-            v = edge.Destination 
-            if v in DijkstraVisit: 
-                sum_actual = vActual.DijkstraDistance + edge.Length #sumamos la distancia actual mas la de la aresta 
-                if v.DijkstraDistance > sum_actual:
-                      v.DijkstraDistance = sum_actual
-                      dic[v] = vActual #guardamos en el diccionario el nodo vecino como key y el nodo predecesor como value
-        DijkstraVisit.remove(vActual) #eliminamos de la lista de nodos el nodo que visitamos
-    return dic
-"""
 
-# PythonSalesMan/dijkstra.py
-"""
-def Dijkstra(g, start):
-    import heapq
-
-    for v in g.Vertices:
-        v.DijkstraDistance = float('inf')
-        v.DijkstraVisit = False
-        v.DijkstraPrevious = None
-
-    start.DijkstraDistance = 0
-    heap = [(0, start)]
-
-    while heap:
-        _, current = heapq.heappop(heap)
-        if current.DijkstraVisit:
-            continue
-        current.DijkstraVisit = True
-
-        for edge in current.Edges:
-            neighbor = edge.Destination
-            new_distance = current.DijkstraDistance + edge.Length
-            if new_distance < neighbor.DijkstraDistance:
-                neighbor.DijkstraDistance = new_distance
-                neighbor.DijkstraPrevious = current
-                heapq.heappush(heap, (new_distance, neighbor))
-
-    # Retornem els predecessors com a diccionari
-    return {v: v.DijkstraPrevious for v in g.Vertices}
-"""
 
 # PythonSalesMan/dijkstra.py
 
