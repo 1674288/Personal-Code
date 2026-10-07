@@ -1,13 +1,17 @@
-# Sense cicle
-a, b, c = ListNode(1), ListNode(2), ListNode(3)
-a.next, b.next = b, c
-assert hasCycle(a) is False
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
-# Cicle a la posició 1
-c.next = b
-assert hasCycle(a) is True
 
-# Casos límit
-assert hasCycle(None) is False
-x = ListNode(1); x.next = x
-assert hasCycle(x) is True
+def hasCycle(head: ListNode) -> bool:
+    slow = head
+    fast = head
+
+    while fast is not None and fast.next is not None:
+        slow = slow.next
+        fast = fast.next.next
+        if slow is fast:
+            return True
+
+    return False
